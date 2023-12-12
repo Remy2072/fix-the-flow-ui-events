@@ -8,9 +8,11 @@
   --pill: 2rem;
   --line: 0.1rem;
 }
+
 * {
   box-sizing: border-box;
 }
+
 body {
   margin: 2rem;
   padding: 0;
@@ -18,9 +20,11 @@ body {
   font-size: 2rem;
   background: var(--secondary);
 }
+
 section {
   max-width: 90vw;
 }
+
 a {
   display: inline-block;
   margin: 0.2em;
@@ -32,6 +36,8 @@ a {
   font-weight: normal;
   text-decoration: none;
 }
+
+
 a:hover {
   color: var(--primary);
   border-color: var(--primary);
@@ -40,6 +46,24 @@ a:hover {
 /* UI Event Classes */
 
 /* Jump animation on the interaction link */
+a:nth-of-type(1) {
+  background-color: var(--highlight-primary);
+  color: var(--secondary);
+  border: var(--highlight-primary);
+}
+
+a.hover1 {
+  background-color: var(--highlight-secondary);
+  border: var(--highlight-secondary);
+  color: var(--highlight-primary);
+}
+
+a.hover2 {
+  background-color: var(--highlight-secondary);
+  border: var(--highlight-secondary);
+  color: var(--highlight-primary);
+}
+
 a:nth-of-type(12) {
   position: relative;
   background: var(--highlight-secondary);
@@ -47,11 +71,48 @@ a:nth-of-type(12) {
   border-color: var(--secondary);
 }
 
+.shake {
+  animation-name: shake;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+}
+
 .jump {
   animation-name: jump;
   animation-timing-function: cubic-bezier(0.28, 0.84, 0.42, 1);
   animation-duration: 1.2s;
   animation-iteration-count: 1;
+}
+
+.zoom {
+  animation-name: zooom;
+  animation-timing-function: cubic-bezier(0.28, 0.84, 0.42, 1);
+  animation-duration: 0.7s;
+}
+
+.fly {
+  animation-name: fly;
+  animation-timing-function: cubic-bezier(0.28, 0.84, 0.42, 1);
+  animation-duration: 1.2s;
+  animation-iteration-count: 1;
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
 }
 
 @keyframes jump {
@@ -78,4 +139,26 @@ a:nth-of-type(12) {
   }
 }
 
-/* Jouw animaties */
+@keyframes zooom {
+  0% {
+    transform: scale(1); /* Initial size */
+  }
+  50% {
+    transform: scale(1.2); /* Slightly larger size */
+  }
+  100% {
+    transform: scale(1); /* Return to original size */
+  }
+}
+
+@keyframes fly {
+  0% {
+    transform: translateX(0vw); /* Move across the screen */
+  }
+  50% {
+    transform: translateX(100vw); /* Move across the screen */
+  }
+  100% {
+    transform: translateX(0vw);
+  }
+}
